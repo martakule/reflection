@@ -5,8 +5,8 @@
 	"nodes": {
 		"hungry": {
 			"kind": "question",
-			"heading": "Hungry?",
-			"prompt": "Am I hungry?",
+			"heading": "Am I hungry?",
+			"prompt": "What do I feel? How does my stomach feel? How does my head feel?",
 			"notes": [
 				"Stomach hunger cues: empty feeling, grumbling",
 				"Low blood sugar cues: unfocused, tired, headache"
@@ -62,7 +62,7 @@
 		},
 		"before_sleep": {
 			"kind": "question",
-			"heading": "Let's get mindful!",
+			"heading": "Is it late?",
 			"prompt": "Am I going to sleep in less than 4 hours?",
 			"notes": ["I have reflux.", "I want to sleep well, protect my throat."],
 			"choices": [
@@ -72,15 +72,19 @@
 		},
 		"time_since_last_food": {
 			"kind": "question",
-			"heading": "Let's assess the hunger",
-			"prompt": "When was the last time I ate? More than an hour ago?",
+			"heading": "Am I physically full?",
+			"prompt": "When was the last time I ate? How many hours ago?",
 			"notes": [
 				"When I haven't slept enough, I'm hugnry all day, no matter how much and how often I eat.",
 				"When I know I've eaten, it's OK to ingore hunger cues."
 			],
 			"choices": [
-				{ "id": "yes", "label": "Yes", "next": "what_food_kind" },
-				{ "id": "no", "label": "No", "next": "be_uncomfortable" }
+				{ "id": "more", "label": "3 h or more", "next": "time_for_meal" },
+				{
+					"id": "less",
+					"label": "Less than 3 h",
+					"next": "what_food_kind"
+				}
 			]
 		},
 		"what_food_kind": {
@@ -131,15 +135,12 @@
 		},
 		"be_uncomfortable": {
 			"kind": "question",
-			"heading": "Reflection time!",
-			"prompt": "Am I willing to feel discomfort in this moment for the sake of my body's health?",
+			"heading": "This might not be the best time to eat",
+			"prompt": "Am I willing to feel discomfort in this moment for my body's sake?",
 			"notes": [
-				"I'm not doing this because I hate my body.",
-				"I'm doing this because I want my body to be healthy and live long.",
-				"I'm doing this FOR my body, not TO my body.",
-				"I'll remain fat. And my blood sugar and heart will remain healthy.",
-				"What do I need right now? Rest? Movement? Comfort? Connection?",
-				"What can I do to meet my needs or to distract myself from the discomfort?"
+				"I want my body to be healthy and lasting, whatever shape it is.",
+				"What do I need right now? Rest? Movement? Comfort? Distraction?",
+				"What can I do to meet those needs or to distract myself from the discomfort?"
 			]
 		}
 	}
