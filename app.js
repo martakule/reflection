@@ -1,19 +1,30 @@
 import { Body } from "./components/body.js";
 import { Button } from "./components/button.js";
 import { Heading } from "./components/heading.js";
+import { IconButton } from "./components/icon-button.js";
 import { Notes } from "./components/notes.js";
 import DATA from "./data.json" with { type: "json" };
 
 const root = document.getElementById("app");
+const controls = document.getElementById("controls");
+
+// Fill out control panel
+controls.appendChild(
+	IconButton("./assets/back.svg", "go back one step", true, handleBackClick),
+);
+controls.appendChild(
+	IconButton("./assets/reset.svg", "reset flow", true, resetApp),
+);
 
 // Reveal app
 const introButton = document.getElementById("intro");
 introButton.addEventListener("click", revealApp);
 
 function revealApp() {
+	document.querySelectorAll(".hide").forEach((el) => {
+		el.classList.remove("hide");
+	});
 	introButton.classList.add("hide");
-	root.classList.remove("hide");
-	document.getElementById("controls").classList.remove("hide");
 }
 
 // Track node IDs (stack includes current screen)
@@ -21,17 +32,11 @@ let currentId = DATA.start;
 const flow = [DATA.start];
 
 // Reset app
-const resetButton = document.getElementById("reset");
-resetButton.addEventListener("click", resetApp);
-
 function resetApp() {
 	location.reload();
 }
 
 // Render previous state
-const backButton = document.getElementById("previous");
-backButton.addEventListener("click", handleBackClick);
-
 function handleBackClick() {
 	if (flow.length === 1) {
 		resetApp();
