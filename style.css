@@ -62,11 +62,14 @@ button {
   margin-top: 50%;
 }
 
-#reset {
+.controls {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 0;
+  right: 0;
   align-self: flex-end;
+  padding: 6px;
+  display: flex;
+  gap: 12px;
 }
 
 .icon-button {
@@ -74,6 +77,12 @@ button {
   border: none;
   border-radius: 99px;
   line-height: 0;
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
+
 }
 
 .app {

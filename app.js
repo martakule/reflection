@@ -11,38 +11,62 @@ const introButton = document.getElementById("intro");
 introButton.addEventListener("click", revealApp);
 
 function revealApp() {
-  introButton.setAttribute("class", "button hide");
-  root.setAttribute("class", "app");
+	introButton.classList.add("hide");
+	root.classList.remove("hide");
+	document.getElementById("controls").classList.remove("hide");
 }
+
+// Track node IDs (stack includes current screen)
+let currentId = DATA.start;
+const flow = [DATA.start];
 
 // Reset app
 const resetButton = document.getElementById("reset");
 resetButton.addEventListener("click", resetApp);
 
 function resetApp() {
-  location.reload();
+	location.reload();
 }
 
-function handleClick(event) {
-  render(event.currentTarget.dataset.next);
+// Render previous state
+const backButton = document.getElementById("previous");
+backButton.addEventListener("click", handleBackClick);
+
+function handleBackClick() {
+	if (flow.length === 1) {
+		resetApp();
+	} else {
+		flow.pop();
+		currentId = flow.at(-1);
+
+		render();
+	}
 }
 
-function render(id) {
-  root.replaceChildren();
-
-  const currentNode = DATA.nodes[id];
-  const { heading, prompt, notes, choices } = currentNode;
-
-  root.appendChild(Heading(heading));
-  root.appendChild(Body(prompt));
-  root.appendChild(Notes(notes));
-
-  if (choices) {
-    choices.forEach((choice, index) => {
-      const { label, next } = choice;
-      root.appendChild(Button(label, next, handleClick, index));
-    });
-  }
+// Render next state
+function handleNextClick(event) {
+	const nextId = event.currentTarget.dataset.next;
+	flow.push(nextId);
+	currentId = nextId;
+	render();
 }
 
-render(DATA.start);
+function render() {
+	root.replaceChildren();
+
+	const currentNode = DATA.nodes[currentId];
+	const { heading, prompt, notes, choices } = currentNode;
+
+	root.appendChild(Heading(heading));
+	root.appendChild(Body(prompt));
+	root.appendChild(Notes(notes));
+
+	if (choices) {
+		choices.forEach((choice, index) => {
+			const { label, next } = choice;
+			root.appendChild(Button(label, next, handleNextClick, index));
+		});
+	}
+}
+
+render();
