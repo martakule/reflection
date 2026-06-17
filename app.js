@@ -11,8 +11,8 @@ const introButton = document.getElementById("intro");
 introButton.addEventListener("click", revealApp);
 
 function revealApp() {
-	introButton.setAttribute("class", "button hide");
-	root.setAttribute("class", "app");
+  introButton.setAttribute("class", "button hide");
+  root.setAttribute("class", "app");
 }
 
 // Reset app
@@ -20,29 +20,29 @@ const resetButton = document.getElementById("reset");
 resetButton.addEventListener("click", resetApp);
 
 function resetApp() {
-	location.reload();
+  location.reload();
 }
 
 function handleClick(event) {
-	render(event.currentTarget.dataset.next);
+  render(event.currentTarget.dataset.next);
 }
 
 function render(id) {
-	root.replaceChildren();
+  root.replaceChildren();
 
-	const currentNode = DATA.nodes[id];
-	const { heading, prompt, notes, choices } = currentNode;
+  const currentNode = DATA.nodes[id];
+  const { heading, prompt, notes, choices } = currentNode;
 
-	root.appendChild(Heading(heading));
-	root.appendChild(Body(prompt));
-	root.appendChild(Notes(notes));
+  root.appendChild(Heading(heading));
+  root.appendChild(Body(prompt));
+  root.appendChild(Notes(notes));
 
-	if (choices) {
-		choices.forEach((choice) => {
-			const { label, next } = choice;
-			root.appendChild(Button(label, next, handleClick));
-		});
-	}
+  if (choices) {
+    choices.forEach((choice, index) => {
+      const { label, next } = choice;
+      root.appendChild(Button(label, next, handleClick, index));
+    });
+  }
 }
 
 render(DATA.start);
