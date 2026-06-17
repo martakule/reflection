@@ -1,4 +1,4 @@
-const CACHE_NAME = "reflection-v2";
+const CACHE_NAME = "reflection-v3";
 
 const ASSETS = [
   "./",
@@ -36,10 +36,28 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
+/** Network first so reloads pick up edits; cache when offline. */
 self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") return;
+
   event.respondWith(
-    caches
-      .match(event.request)
-      .then((cached) => cached ?? fetch(event.request)),
+    (async () => {
+      try {
+        const response = await fetch(event.request);
+        if (response.ok) {
+          const cache = await caches.open(CACHE_NAME);
+          try {
+            await cache.put(event.request, response.clone());
+          } catch {
+            /* non-cacheable response */
+          }
+        }
+        return response;
+      } catch {
+        const cached = await caches.match(event.request);
+        if (cached) return cached;
+        throw new Error("offline");
+      }
+    })(),
   );
 });

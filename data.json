@@ -79,10 +79,10 @@
 				"When I know I've eaten, it's OK to ingore hunger cues."
 			],
 			"choices": [
-				{ "id": "more", "label": "3 h or more", "next": "time_for_meal" },
+				{ "id": "more", "label": "More than 3", "next": "time_for_meal" },
 				{
 					"id": "less",
-					"label": "Less than 3 h",
+					"label": "Less than 3",
 					"next": "what_food_kind"
 				}
 			]

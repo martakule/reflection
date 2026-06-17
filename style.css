@@ -1,18 +1,52 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: Georgia, serif;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background-color: black;
+  color: white;
 }
 
 .wrapper {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex: 1;
   background-color: whitesmoke;
+  position: relative;
 }
 
 #reset {
+  position: fixed;
+  top: 8px;
+  right: 8px;
   align-self: flex-end;
-  margin: 12px;
+}
+
+.icon-button {
+  padding: 6px;
+  border: none;
+  border-radius: 99px;
+  line-height: 1;
 }
 
 .hide {
@@ -20,8 +54,10 @@ body {
 }
 
 .app {
+  height: 100%;
   width: 500px;
   max-width: 100%;
+  box-sizing: border-box;
   background-color: white;
   padding: 24px;
 }
@@ -31,20 +67,22 @@ body {
 }
 
 .button {
-  min-width: 50%;
-  font-size: 1.5rem;
+  min-width: calc(50% - 12px);
+  font-size: 1rem;
   padding: 12px 24px;
-  border: none;
 }
 
 .right {
   float: right;
-  margin-right: -24px;
-  border-radius: 8px 0 0 8px;
 }
 
 .left {
   float: left;
-  margin-left: -24px;
-  border-radius: 0 8px 8px 0;
+}
+
+.notes {
+  list-style: none;
+  padding: 0;
+  line-height: 1.5;
+  color: #555555;;
 }
