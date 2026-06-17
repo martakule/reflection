@@ -6,10 +6,11 @@
 		"hungry": {
 			"kind": "question",
 			"heading": "Am I hungry?",
-			"prompt": "What do I feel? How does my stomach feel? How does my head feel?",
+			"prompt": "How do I feel?",
 			"notes": [
-				"Stomach hunger cues: empty feeling, grumbling",
-				"Low blood sugar cues: unfocused, tired, headache"
+				"Is my stomach empty and grumbling?",
+				"Am I unfocused or tired?",
+				"Do I have a headache?"
 			],
 			"choices": [
 				{ "id": "yes", "label": "Yes", "next": "time_since_last_food" },
@@ -18,12 +19,11 @@
 		},
 		"bored_or_anxious": {
 			"kind": "question",
-			"heading": "If not hunger then what?",
+			"heading": "If not hungry then what?",
 			"prompt": "Am I bored? Frustrated? Anxious?",
 			"notes": [
-				"I eat to self-soothe and to stimulate my senses.",
-				"I eat new foods because I want to try them.",
-				"I know that too many snacks are not good for my blood sugar"
+				"I eat to self-soothe, stimulate my senses, try new foods.",
+				"I know that too many snacks are not good for my blood sugar."
 			],
 			"choices": [
 				{ "id": "yes", "label": "Yes", "next": "take_break" },
@@ -37,8 +37,7 @@
 			"notes": [
 				"Sweets after a full meal affect my blood sugar much less.",
 				"When I had sweets with my meal, I crave them less later.",
-				"The diet brain keeps repeating that people who eat dessert are disgusting losers.",
-				"I don't have to listen it anymore. I can live happy and balanced."
+				"It's OK to have dessert with a meal."
 			],
 			"choices": [
 				{ "id": "yes", "label": "Yes", "next": "be_uncomfortable" },
@@ -50,10 +49,10 @@
 			"heading": "Snacking day?",
 			"prompt": "Have I already had snacks today?",
 			"notes": [
-				"It's a difficult balance to limit sugar consumption without falling back into dieting restictions and demonizing foods that bring pleasure.",
 				"How many snacks have I had today?",
 				"How much sugar can my body process comfortably?",
-				"How am I going to feel physically after eating what I'm craving?"
+				"How am I going to feel physically after eating what I'm craving?",
+				"I know it's hard for me to set those limits for myself after years of setting them against myself."
 			],
 			"choices": [
 				{ "id": "yes", "label": "Yes", "next": "be_uncomfortable" },
@@ -72,8 +71,8 @@
 		},
 		"time_since_last_food": {
 			"kind": "question",
-			"heading": "Am I physically full?",
-			"prompt": "When was the last time I ate? How many hours ago?",
+			"heading": "When was the last time I ate?",
+			"prompt": "How many hours ago?",
 			"notes": [
 				"When I haven't slept enough, I'm hugnry all day, no matter how much and how often I eat.",
 				"When I know I've eaten, it's OK to ingore hunger cues."
@@ -93,7 +92,7 @@
 			"prompt": "Did I have a full meal or just a snack?",
 			"notes": [
 				"Sometimes I keep snacking instead of pausing for a proper meal.",
-				"Some meals don't keep me full for as long as others - panckakes or cereal fly through me"
+				"Some meals don't keep me full for as long as others - pancakes or cereal fly through me."
 			],
 			"choices": [
 				{ "id": "meal", "label": "Meal", "next": "be_uncomfortable" },
@@ -103,34 +102,31 @@
 		"take_break": {
 			"kind": "terminal",
 			"heading": "Break time?",
-			"prompt": "It's time to try those other ways to react to boredom or anxiety.",
+			"prompt": "Can I try other ways to handle boredom or anxiety?",
 			"notes": [
-				"Maybe I'm just thirsty? Let's have a glass of water and see how I feel.",
-				"When I'm frustrated r anxious, I tend to sit at my computer, hoping I can figue it out.",
-				"Then, I often end up on Reddit anyway. With chips, rarely a fruit.",
-				"I'm afraid I'll an imoprtant Slack message if I leave for 5 minutes.",
+				"Maybe I'm thirsty? How will I feel after a glass of water?",
+				"When I'm frustrated or anxious, I'm afraid to step away from work or I'll miss an important message.",
 				"Five minutes is nothing. I won't get fired. I can stand up, stretch, walk around, hug Olsi, pet Rosie."
 			]
 		},
 		"have_snack": {
 			"kind": "terminal",
-			"heading": "Have a snack!",
-			"prompt": "I'll have a snack. I know what's good for my body.",
+			"heading": "Snack time?",
+			"prompt": "I could have a snack. I know what's good for my body.",
 			"notes": [
-				"What do I feel like having? What are my choices? Am I at home or at work?",
-				"Am I craving a juicy crunchy fruit or baby carrots?",
-				"Or a scrumtious chocolate bar or a cookie?",
-				"Or flavourful chips or jerky?"
+				"What do I feel like having?",
+				"What are my choices?",
+				"Am I at home or at work?"
 			]
 		},
 		"time_for_meal": {
 			"kind": "terminal",
 			"heading": "Meal time?",
-			"prompt": "Maybe it's time to take a break and have that lunch or dinner now?",
+			"prompt": "Maybe it's time to take a break and have lunch or dinner?",
 			"notes": [
 				"It's OK to eat lunch less than 4 hours after breakfast.",
-				"I know I'll keep snacking until I have proper lunch",
-				"I can have a pleasure food with my meal: chocolate for dessert or chips with my sandwich."
+				"I know I'll keep snacking until I have proper lunch.",
+				"I can have dessert with my meal."
 			]
 		},
 		"be_uncomfortable": {
@@ -139,7 +135,8 @@
 			"prompt": "Am I willing to feel discomfort in this moment for my body's sake?",
 			"notes": [
 				"I want my body to be healthy and lasting, whatever shape it is.",
-				"What do I need right now? Rest? Movement? Comfort? Distraction?",
+				"What do I need right now?",
+				"Rest? Movement? Comfort? Distraction?",
 				"What can I do to meet those needs or to distract myself from the discomfort?"
 			]
 		}

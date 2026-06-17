@@ -12,9 +12,8 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  display: flex;
-  flex-direction: column;
   font-family: Georgia, serif;
+  background-color: whitesmoke;
 }
 
 button {
@@ -22,23 +21,51 @@ button {
   border: none;
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
 .wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  background-color: whitesmoke;
   position: relative;
+  height: 100%;
+  width: 500px;
+  max-width: 100%;
+  background-color: white;
+  padding: 36px 24px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Decoration only in the lower half of the viewport so short screens do not push art into the text band. */
+.wrapper::before {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  top: 50vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(500px, 100vw);
+  bottom: 0;
+  background-image: url('./assets/background.png');
+  /* Top of art meets the 50vh line; short viewports clip the bottom, not the treetop. */
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
+#intro {
+  margin-top: 50%;
 }
 
 #reset {
-  position: fixed;
-  top: 8px;
-  right: 8px;
+  position: absolute;
+  top: 6px;
+  right: 6px;
   align-self: flex-end;
 }
 
@@ -46,24 +73,22 @@ button {
   padding: 6px;
   border: none;
   border-radius: 99px;
-  line-height: 1;
+  line-height: 0;
+}
+
+.app {
+  text-align: left;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-wrap: pretty;
 }
 
 .hide {
   display: none;
 }
 
-.app {
-  height: 100%;
-  width: 500px;
-  max-width: 100%;
-  box-sizing: border-box;
-  background-color: white;
-  padding: 24px;
-}
-
 .heading {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .button {
