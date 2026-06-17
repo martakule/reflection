@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,9 +12,16 @@
   <body>
     <div class="wrapper">
       <button type="button" id="reset">Restart</button>
-      <button type="button" class="button" id="intro">Let's get mindul with compassion</button>
+      <button type="button" class="button" id="intro">
+        Mindful with compassion
+      </button>
       <div id="app" class="app hide"></div>
     </div>
     <script type="module" src="app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+        navigator.serviceWorker.register("./sw.js");
+      }
+    </script>
   </body>
 </html>
