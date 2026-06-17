@@ -2,6 +2,7 @@ import { Body } from "./components/body.js";
 import { Button } from "./components/button.js";
 import { Heading } from "./components/heading.js";
 import { IconButton } from "./components/icon-button.js";
+import { renderModal } from "./components/modal.js";
 import { Notes } from "./components/notes.js";
 import DATA from "./data.json" with { type: "json" };
 
@@ -15,6 +16,16 @@ controls.appendChild(
 controls.appendChild(
 	IconButton("./assets/reset.svg", "reset flow", true, resetApp),
 );
+controls.appendChild(
+	IconButton("./assets/info.svg", "show info about this app", false, showModal),
+);
+
+renderModal();
+
+// Show info modal
+function showModal() {
+	document.getElementById("info").classList.add("show");
+}
 
 // Reveal app
 const introButton = document.getElementById("intro");
