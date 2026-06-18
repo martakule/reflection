@@ -6,17 +6,20 @@
 
 html {
   height: 100%;
+}
 
   /* LIGHT THEME */
-  --bg-primary: white;
-  --bg-secondary: whitesmoke;
-  --bg-button: black;
-  --txt-primary: black;
-  --txt-secondary: #585858;
-  --txt-button: white;
+  [data-theme="light"] {
+    --bg-primary: white;
+    --bg-secondary: whitesmoke;
+    --bg-button: black;
+    --txt-primary: black;
+    --txt-secondary: #585858;
+    --txt-button: white;
+  }
 
-  @media (prefers-color-scheme: dark) {
-    /* DARK THEME */
+  /* DARK THEME */
+  [data-theme="dark"] {
     --bg-primary: black;
     --bg-secondary: #343231;
     --bg-button: #404040;
@@ -24,7 +27,6 @@ html {
     --txt-secondary: #d1d1d1;
     --txt-button: white;
   }
-}
 
 body {
   margin: 0;
