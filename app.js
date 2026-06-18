@@ -11,20 +11,20 @@ const controls = document.getElementById("controls");
 
 // Fill out control panel
 controls.appendChild(
-	IconButton("./assets/back.svg", "go back one step", true, handleBackClick),
+  IconButton("./assets/back.svg", "go back one step", true, handleBackClick),
 );
 controls.appendChild(
-	IconButton("./assets/reset.svg", "reset flow", true, resetApp),
+  IconButton("./assets/reset.svg", "reset flow", true, resetApp),
 );
 controls.appendChild(
-	IconButton("./assets/info.svg", "show info about this app", false, showModal),
+  IconButton("./assets/info.svg", "show info about this app", false, showModal),
 );
 
 renderModal();
 
 // Show info modal
 function showModal() {
-	document.getElementById("info").classList.add("show");
+  document.getElementById("info").classList.add("show");
 }
 
 // Reveal app
@@ -32,10 +32,10 @@ const introButton = document.getElementById("intro");
 introButton.addEventListener("click", revealApp);
 
 function revealApp() {
-	document.querySelectorAll(".hide").forEach((el) => {
-		el.classList.remove("hide");
-	});
-	introButton.classList.add("hide");
+  document.querySelectorAll(".hide").forEach((el) => {
+    el.classList.remove("hide");
+  });
+  introButton.classList.add("hide");
 }
 
 // Track node IDs (stack includes current screen)
@@ -44,45 +44,45 @@ const flow = [DATA.start];
 
 // Reset app
 function resetApp() {
-	location.reload();
+  location.reload();
 }
 
 // Render previous state
 function handleBackClick() {
-	if (flow.length === 1) {
-		resetApp();
-	} else {
-		flow.pop();
-		currentId = flow.at(-1);
+  if (flow.length === 1) {
+    resetApp();
+  } else {
+    flow.pop();
+    currentId = flow.at(-1);
 
-		render();
-	}
+    render();
+  }
 }
 
 // Render next state
 function handleNextClick(event) {
-	const nextId = event.currentTarget.dataset.next;
-	flow.push(nextId);
-	currentId = nextId;
-	render();
+  const nextId = event.currentTarget.dataset.next;
+  flow.push(nextId);
+  currentId = nextId;
+  render();
 }
 
 function render() {
-	root.replaceChildren();
+  root.replaceChildren();
 
-	const currentNode = DATA.nodes[currentId];
-	const { heading, prompt, notes, choices } = currentNode;
+  const currentNode = DATA.nodes[currentId];
+  const { heading, prompt, notes, choices } = currentNode;
 
-	root.appendChild(Heading(heading));
-	root.appendChild(Body(prompt));
-	root.appendChild(Notes(notes));
+  root.appendChild(Heading(heading));
+  root.appendChild(Body(prompt));
+  root.appendChild(Notes(notes));
 
-	if (choices) {
-		choices.forEach((choice, index) => {
-			const { label, next } = choice;
-			root.appendChild(Button(label, next, handleNextClick, index));
-		});
-	}
+  if (choices) {
+    choices.forEach((choice, index) => {
+      const { label, next } = choice;
+      root.appendChild(Button(label, next, handleNextClick, index));
+    });
+  }
 }
 
 render();

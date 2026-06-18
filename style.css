@@ -15,13 +15,15 @@ html {
   --txt-secondary: #585858;
   --txt-button: white;
 
-  /* DARK THEME */
-  /* --bg-primary: black;
-  --bg-secondary: #343231;
-  --bg-button: #404040;
-  --txt-primary: white;
-  --txt-secondary: #d1d1d1;
-  --txt-button: white; */
+  @media (prefers-color-scheme: dark) {
+    /* DARK THEME */
+    --bg-primary: black;
+    --bg-secondary: #343231;
+    --bg-button: #404040;
+    --txt-primary: white;
+    --txt-secondary: #d1d1d1;
+    --txt-button: white;
+  }
 }
 
 body {

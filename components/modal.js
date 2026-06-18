@@ -10,7 +10,7 @@ function hideModal() {
 
 const paragraphs = [
   'Content inspired by work with <a href="https://kerrifullerton.com/kerri-fullerton/" rel="noopener noreferrer" target="_blank">Kerri Fullerton, ND</a>.',
-  'Imaged by <a href="https://unsplash.com/@aesullivan2010" target="_blank" rel="noopener noreferrer">Anna Sullivan</a> and <a href="https://unsplash.com/@snapbythree" target="_blank" rel="noopener noreferrer">SnapbyThree MY</a>.',
+  'Images by <a href="https://unsplash.com/@aesullivan2010" target="_blank" rel="noopener noreferrer">Anna Sullivan</a> and <a href="https://unsplash.com/@snapbythree" target="_blank" rel="noopener noreferrer">SnapbyThree MY</a>.',
   'Icons by various contributors to <a href="https://www.svgrepo.com/" target="_blank" rel="noopener noreferrer">SVG REPO</a>.',
 ];
 
@@ -18,7 +18,7 @@ export const renderModal = () => {
   infoModal.appendChild(
     IconButton("./assets/close.svg", "close", false, hideModal),
   );
-  infoModal.appendChild(Heading("Attributions"));
+  infoModal.appendChild(Heading("About this app"));
   paragraphs.forEach((para) => {
     const paragraph = Body("");
     paragraph.innerHTML = para;
