@@ -1,4 +1,4 @@
-const CACHE_NAME = "reflection-v5";
+const CACHE_NAME = "reflection-v6";
 
 const ASSETS = [
   "./",

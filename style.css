@@ -127,7 +127,7 @@ button {
   background-image: url("./assets/info.png");
   background-position: bottom;
   background-repeat: no-repeat;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 
   button {
     float: right;
