@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#4a90d9" />
     <link rel="manifest" href="./manifest.webmanifest" />
-    <link rel="icon" href="./assets/icon.png" type="image/png" sizes="512x512" />
+    <link
+      rel="icon"
+      href="./assets/icon.png"
+      type="image/png"
+      sizes="512x512"
+    />
     <link rel="stylesheet" href="./style.css" />
     <title>Reflection</title>
   </head>
@@ -16,13 +21,17 @@
       </button>
       <div class="controls" id="controls"></div>
       <div id="app" class="app hide"></div>
+      <div class="modal" id="info"></div>
     </div>
-    <div class="modal" id="info"></div>
     <script type="module" src="app.js"></script>
     <script>
       const dev =
         location.hostname === "localhost" || location.hostname === "127.0.0.1";
-      if ("serviceWorker" in navigator && location.protocol.startsWith("http") && !dev) {
+      if (
+        "serviceWorker" in navigator &&
+        location.protocol.startsWith("http") &&
+        !dev
+      ) {
         navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" });
       }
     </script>
