@@ -6,11 +6,11 @@
 		"hungry": {
 			"kind": "question",
 			"heading": "Am I hungry?",
-			"prompt": "How do I feel?",
+			"prompt": "Am I feeling physical sensations of hunger or low blood sugar?",
 			"notes": [
 				"Is my stomach empty and grumbling?",
-				"Am I unfocused or tired?",
-				"Do I have a headache?"
+				"Am I unfocused or tired, with a headache?",
+				"Am I having an all-out reactive hypoglycemia eposide?"
 			],
 			"choices": [
 				{ "id": "yes", "label": "Yes", "next": "time_since_last_food" },
@@ -19,11 +19,11 @@
 		},
 		"bored_or_anxious": {
 			"kind": "question",
-			"heading": "If not hungry then what?",
-			"prompt": "Am I bored? Frustrated? Anxious?",
+			"heading": "Are my emotions leading now?",
+			"prompt": "Am I feeling bored? Frustrated? Anxious? Rebellious?",
 			"notes": [
-				"I eat to self-soothe, stimulate my senses, try new foods.",
-				"I know that too many snacks are not good for my blood sugar."
+				"Am I looking to soothe with food or eat for entertainment?",
+				"Am I home alone and looking to sneak in a treat while Olsi isn't looking?"
 			],
 			"choices": [
 				{ "id": "yes", "label": "Yes", "next": "take_break" },
@@ -32,12 +32,11 @@
 		},
 		"had_snacks_with_meal": {
 			"kind": "question",
-			"heading": "Snacks with meal?",
-			"prompt": "Did I have a snack with my last meal?",
+			"heading": "Did I have a sweets with my last meal?",
+			"prompt": "Did I take Kerri's advice to have sweets or other pleasure foods with a meal?",
 			"notes": [
-				"Sweets after a full meal affect my blood sugar much less.",
-				"When I had sweets with my meal, I crave them less later.",
-				"It's OK to have dessert with a meal."
+				"With reactive hypoglycemia, I need to take blood sugar fluctuations seriously.",
+				"I can have sweets, and I also need to take care to keep my blood sugar level steady."
 			],
 			"choices": [
 				{ "id": "yes", "label": "Yes", "next": "be_uncomfortable" },
@@ -46,13 +45,11 @@
 		},
 		"had_snacks_today": {
 			"kind": "question",
-			"heading": "Snacking day?",
-			"prompt": "Have I already had snacks today?",
+			"heading": "Have I been snacking?",
+			"prompt": "Have I already had snacks between now and my last meal?",
 			"notes": [
-				"How many snacks have I had today?",
-				"How much sugar can my body process comfortably?",
-				"How am I going to feel physically after eating what I'm craving?",
-				"I know it's hard for me to set those limits for myself after years of setting them against myself."
+				"Yes, it is triggering to reintroduce restriction after leaving the insane diet mentality.",
+				"How do I balance the compassion for what my body's been through with the discipline to let it thrive now?"
 			],
 			"choices": [
 				{ "id": "yes", "label": "Yes", "next": "be_uncomfortable" },
@@ -63,7 +60,10 @@
 			"kind": "question",
 			"heading": "Is it late?",
 			"prompt": "Am I going to sleep in less than 4 hours?",
-			"notes": ["I have reflux.", "I want to sleep well, protect my throat."],
+			"notes": [
+				"I have reflux. Do I choose the pills or lifestyle changes?",
+				"How do I balance care for my throat and esophagus with reacting to dieting trauma?"
+			],
 			"choices": [
 				{ "id": "yes", "label": "Yes", "next": "be_uncomfortable" },
 				{ "id": "no", "label": "No", "next": "hungry" }
@@ -71,17 +71,19 @@
 		},
 		"time_since_last_food": {
 			"kind": "question",
-			"heading": "When was the last time I ate?",
-			"prompt": "How many hours ago?",
+			"heading": "Have I eaten?",
+			"prompt": "Did I eat less than 3 hours ago?",
 			"notes": [
 				"When I haven't slept enough, I'm hugnry all day, no matter how much and how often I eat.",
-				"When I know I've eaten, it's OK to ingore hunger cues."
+				"When I know I've eaten, it's OK to ingore hunger cues.",
+				"Does my stomach feel physically full and yet I'm feeling hunger?",
+				"Do I feel physically full when I imagine eating an applve vs a Snickers?"
 			],
 			"choices": [
-				{ "id": "more", "label": "More than 3", "next": "time_for_meal" },
+				{ "id": "no", "label": "No", "next": "time_for_meal" },
 				{
-					"id": "less",
-					"label": "Less than 3",
+					"id": "yes",
+					"label": "Yes",
 					"next": "what_food_kind"
 				}
 			]
@@ -101,36 +103,40 @@
 		},
 		"take_break": {
 			"kind": "terminal",
-			"heading": "Break time?",
-			"prompt": "Can I try other ways to handle boredom or anxiety?",
+			"heading": "Could I take a break?",
+			"prompt": "Can I try other ways to handle boredom, anxiety, diet rebellion?",
 			"notes": [
-				"Maybe I'm thirsty? How will I feel after a glass of water?",
-				"When I'm frustrated or anxious, I'm afraid to step away from work or I'll miss an important message.",
-				"Five minutes is nothing. I won't get fired. I can stand up, stretch, walk around, hug Olsi, pet Rosie."
+				"Am I thirsty? How will I feel after a glass of water?",
+				"I won't get fired for stepping away from my laptop for five minutes.",
+				"I have so many options! Quick stretch, walk around the office, make tea, hug Olsi, pet Rosie, do Kassandra's 5 minute yoga?",
+				"How will I feel physically if I have that sweet or snack just because I can?"
 			]
 		},
 		"have_snack": {
 			"kind": "terminal",
-			"heading": "Snack time?",
-			"prompt": "I could have a snack. I know what's good for my body.",
+			"heading": "Could I have a snack now?",
+			"prompt": "What are low glycemic index snacks to keep my blood sugar level steady?",
 			"notes": [
-				"What do I feel like having?",
-				"What are my choices?",
-				"Am I at home or at work?"
+				"Am I at home, at work, outside? What are my choices?",
+				"Fresh fruit, nuts, digestive biscuits?",
+				"Milk, kefir, plain yogurt, cheese sticks?",
+				"Veggies with hummus?",
+				"Brick bread with peanut butter or avocado?",
+				"Jerky, tuna, boiled egg?"
 			]
 		},
 		"time_for_meal": {
 			"kind": "terminal",
-			"heading": "Meal time?",
-			"prompt": "Maybe it's time to take a break and have lunch or dinner?",
+			"heading": "Could I have a meal now?",
+			"prompt": "Is it time to take a break and have lunch or dinner?",
 			"notes": [
 				"It's OK to eat lunch less than 4 hours after breakfast.",
 				"I know I'll keep snacking until I have proper lunch.",
-				"I can have dessert with my meal."
+				"I can have a dessert with my meal."
 			]
 		},
 		"be_uncomfortable": {
-			"kind": "question",
+			"kind": "terminal",
 			"heading": "This might not be the best time to eat",
 			"prompt": "Am I willing to feel discomfort in this moment for my body's sake?",
 			"notes": [

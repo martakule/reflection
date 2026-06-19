@@ -134,6 +134,7 @@ button {
   padding: 0;
   line-height: 1.5;
   color: var(--txt-secondary);
+  text-align: right;
 }
 
 .modal {

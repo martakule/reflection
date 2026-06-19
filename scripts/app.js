@@ -28,14 +28,13 @@ function showModal() {
 }
 
 // Reveal app
-const introButton = document.getElementById("intro");
-introButton.addEventListener("click", revealApp);
+document.getElementById("intro-button").addEventListener("click", revealApp);
 
 function revealApp() {
 	document.querySelectorAll(".hide").forEach((el) => {
 		el.classList.remove("hide");
 	});
-	introButton.classList.add("hide");
+	document.getElementById("intro").classList.add("hide");
 }
 
 // Track node IDs (stack includes current screen)
