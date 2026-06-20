@@ -1,9 +1,10 @@
-const CACHE_NAME = "reflection-v7";
+const CACHE_NAME = "reflection-v8";
 
 const ASSETS = [
 	"./",
 	"./index.html",
-	"./app.js",
+	"./scripts/app.js",
+	"./scripts/theme.js",
 	"./style.css",
 	"./data.json",
 	"./manifest.webmanifest",
@@ -13,6 +14,14 @@ const ASSETS = [
 	"./components/button.js",
 	"./components/heading.js",
 	"./components/notes.js",
+	"./components/icon-button.js",
+	"./components/modal.js",
+	"./assets/back.svg",
+	"./assets/reset.svg",
+	"./assets/info.svg",
+	"./assets/moon.svg",
+	"./assets/sun.svg",
+	"./assets/close.svg",
 ];
 
 self.addEventListener("install", (event) => {

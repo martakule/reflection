@@ -1,4 +1,4 @@
-export const IconButton = (icon, label, hide, onClick) => {
+export const IconButton = ({ icon, label, hide, onClick }) => {
 	// Button
 	const buttonEl = document.createElement("button");
 	buttonEl.setAttribute("type", "button");

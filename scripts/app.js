@@ -5,20 +5,37 @@ import { IconButton } from "../components/icon-button.js";
 import { renderModal } from "../components/modal.js";
 import { Notes } from "../components/notes.js";
 import DATA from "../data.json" with { type: "json" };
+import { mountThemeButton } from "./theme.js";
 
 const root = document.getElementById("app");
 const controls = document.getElementById("controls");
 
 // Fill out control panel
 controls.appendChild(
-	IconButton("./assets/back.svg", "go back one step", true, handleBackClick),
+	IconButton({
+		icon: "./assets/back.svg",
+		label: "go back one step",
+		hide: true,
+		onClick: handleBackClick,
+	}),
 );
 controls.appendChild(
-	IconButton("./assets/reset.svg", "reset flow", true, resetApp),
+	IconButton({
+		icon: "./assets/reset.svg",
+		label: "reset flow",
+		hide: true,
+		onClick: resetApp,
+	}),
 );
 controls.appendChild(
-	IconButton("./assets/info.svg", "show info about this app", false, showModal),
+	IconButton({
+		icon: "./assets/info.svg",
+		label: "show info about this app",
+		hide: false,
+		onClick: showModal,
+	}),
 );
+mountThemeButton(controls);
 
 renderModal();
 

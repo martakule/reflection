@@ -17,7 +17,12 @@ const paragraphs = [
 
 export const renderModal = () => {
 	infoModal.appendChild(
-		IconButton("./assets/close.svg", "close", false, hideModal),
+		IconButton({
+			icon: "./assets/close.svg",
+			label: "close",
+			hide: false,
+			onClick: hideModal,
+		}),
 	);
 	infoModal.appendChild(Heading("Attributions"));
 	paragraphs.forEach((para) => {
